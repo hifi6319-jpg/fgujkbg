@@ -5,10 +5,12 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Gallery from './pages/Gallery';
 import Appointment from './pages/Appointment';
+import ScrollToTopNav from './components/ScrollToTopNav';
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTopNav />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
