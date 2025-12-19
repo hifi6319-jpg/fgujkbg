@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tattoo Studio Chat Box</title>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        /* CHAT BOX STYLES */
+        .chat-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99999;
+            font-family: system-ui, sans-serif;
+        }
+
+        /* Floating Chat Button */
+        .chat-button {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #ec4899);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+
+        /* Chat Window */
+        .chat-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 520px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            visibility: hidden;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .chat-window.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            visibility: visible;
+        }
+
+        /* Header */
+        .chat-header {
+            padding: 16px;
+            background: linear-gradient(90deg, #3b82f6, #ec4899);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .chat-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        /* Messages */
+        .chat-messages {
+            flex: 1;
+            padding: 18px;
+            background: #f9fafb;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .message {
+            max-width: 80%;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-message {
+            align-self: flex-end;
+        }
+
+        .bot-message {
+            align-self: flex-start;
+        }
+
+        .message-content {
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .user-message .message-content {
+            background: linear-gradient(90deg, #3b82f6, #ec4899);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .bot-message .message-content {
+            background: white;
+            border: 1px solid #ddd;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-time {
+            font-size: 11px;
+            color: #999;
+            margin-top: 4px;
+            padding: 0 8px;
+        }
+
+        /* Typing dots */
+        .typing-indicator {
+            display: none;
+            padding: 12px 20px;
+            align-self: flex-start;
+        }
+
+        .typing-indicator.active { 
+            display: flex; 
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #999;
+            border-radius: 50%;
+            margin-right: 4px;
+            animation: bounce 1.3s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% { 
+                transform: scale(0.8);
+                opacity: 0.4; 
+            }
+            40% { 
+                transform: scale(1);
+                opacity: 1; 
+            }
+        }
+
+        /* Input Area */
+        .chat-input-container {
+            display: flex;
+            padding: 16px;
+            gap: 10px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 10px 16px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .chat-input:focus {
+            border-color: #3b82f6;
+        }
+
+        .chat-send {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #3b82f6, #ec4899);
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .chat-send:hover {
+            transform: scale(1.05);
+        }
+
+        /* Appointment Button */
+        .appointment-button {
+            background: linear-gradient(90deg, #3b82f6, #ec4899);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 16px;
+            margin-top: 8px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .appointment-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Watermark */
+        .watermark {
+            text-align: center;
+            font-size: 11px;
+            padding: 10px 0;
+            border-top: 1px solid #eee;
+            background: #fafafa;
+        }
+
+        .watermark a {
+            text-decoration: none;
+            color: #777;
+            transition: color 0.3s;
+        }
+
+        .watermark a:hover {
+            color: #3b82f6;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 480px) {
+            .chat-container {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .chat-window {
+                width: calc(100vw - 40px);
+                height: 70vh;
+                right: 0;
+                bottom: 85px;
+            }
+
+            .chat-button {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+
+        /* Scrollbar Styling */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 10px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+    </style>
+</head>
+<body>
+    <!-- CHAT BOX SECTION -->
+    <div class="chat-container">
+        <!-- Floating Chat Button -->
+        <div class="chat-button" id="chatButton">
+            <i class="bi bi-chat-dots"></i>
+        </div>
+
+        <!-- Chat Window -->
+        <div class="chat-window" id="chatWindow">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-title">
+                    <i class="bi bi-chat-square-text"></i>
+                    <span>Support Assistant</span>
+                </div>
+                <button class="chat-close" id="chatClose">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+
+            <!-- Chat Messages -->
+            <div class="chat-messages" id="chatMessages">
+                <!-- Initial bot message -->
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>Hello! I'm here to help with any questions about our tattoo services. How can I assist you today?</p>
+                    </div>
+                    <div class="message-time">Just now</div>
+                </div>
+            </div>
+
+            <!-- Typing Indicator -->
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Type your message here...">
+                <button class="chat-send" id="chatSend">
+                    <i class="bi bi-send"></i>
+                </button>
+            </div>
+
+            <!-- PixelGridHub Watermark -->
+            <div class="watermark">
+                <a href="pixelgridhub.html" target="_blank">Designed by PixelGridHub</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const chatButton = document.getElementById("chatButton");
+            const chatWindow = document.getElementById("chatWindow");
+            const chatClose = document.getElementById("chatClose");
+            const chatMessages = document.getElementById("chatMessages");
+            const chatInput = document.getElementById("chatInput");
+            const chatSend = document.getElementById("chatSend");
+            const typingIndicator = document.getElementById("typingIndicator");
+
+            chatButton.onclick = () => chatWindow.classList.toggle("active");
+            chatClose.onclick = () => chatWindow.classList.remove("active");
+
+            chatSend.onclick = sendMessage;
+            chatInput.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") sendMessage();
+            });
+
+            function sendMessage() {
+                let text = chatInput.value.trim();
+                if (!text) return;
+
+                addMessage(text, "user");
+                chatInput.value = "";
+
+                typingIndicator.classList.add("active");
+
+                setTimeout(() => {
+                    typingIndicator.classList.remove("active");
+                    let reply = getBotReply(text);
+                    
+                    // Check if we need to show appointment button
+                    if (reply.hasButton) {
+                        addMessageWithButton(reply.text, reply.buttonText);
+                    } else {
+                        addMessage(reply.text, "bot");
+                    }
+                }, 900);
+            }
+
+            function addMessage(text, type) {
+                let msg = document.createElement("div");
+                msg.className = `message ${type}-message`;
+
+                msg.innerHTML = `
+                    <div class="message-content"><p>${text}</p></div>
+                    <div class="message-time">${getTime()}</div>
+                `;
+
+                chatMessages.appendChild(msg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function addMessageWithButton(text, buttonText) {
+                let msg = document.createElement("div");
+                msg.className = `message bot-message`;
+
+                msg.innerHTML = `
+                    <div class="message-content">
+                        <p>${text}</p>
+                        <button class="appointment-button" id="appointmentRedirect">${buttonText}</button>
+                    </div>
+                    <div class="message-time">${getTime()}</div>
+                `;
+
+                chatMessages.appendChild(msg);
+                
+                // Add event listener to the button
+                document.getElementById("appointmentRedirect").addEventListener("click", function() {
+                    window.location.href = "appointment.html";
+                });
+                
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function getTime() {
+                const t = new Date();
+                return t.getHours() + ":" + t.getMinutes().toString().padStart(2, "0");
+            }
+
+            /* ---------- AUTO REPLY LOGIC ---------- */
+            function getBotReply(msg) {
+                msg = msg.toLowerCase();
+
+                // Services related
+                if (msg.includes("service") || msg.includes("what do you do") || 
+                    msg.includes("tattoo service") || msg.includes("what kind of tattoo")) {
+                    return {
+                        text: "We provide custom tattoo design, cover-ups, tattoo restoration, and professional consultations. Our artists specialize in various styles from fine-line to traditional.",
+                        hasButton: false
+                    };
+                }
+
+                // Pricing related
+                if (msg.includes("price") || msg.includes("cost") || 
+                    msg.includes("rate") || msg.includes("charge") || 
+                    msg.includes("fee") || msg.includes("how much")) {
+                    return {
+                        text: "Our pricing depends on design size and complexity. Small tattoos start at ₹999. For custom designs, we provide quotes after consultation.",
+                        hasButton: false
+                    };
+                }
+
+                // Hours related
+                if (msg.includes("hour") || msg.includes("time") || 
+                    msg.includes("open") || msg.includes("when") || 
+                    msg.includes("today")) {
+                    return {
+                        text: "We are open Monday to Friday from 9:00 AM to 8:00 PM, and Saturday from 10:00 AM to 6:00 PM.",
+                        hasButton: false
+                    };
+                }
+
+                // Location related
+                if (msg.includes("location") || msg.includes("address") || 
+                    msg.includes("where") || msg.includes("place")) {
+                    return {
+                        text: "We are located at Abirami complex, bus stop, opposite Indian Bank Colony, Ganesh Nagar, K K Nagar, Tiruchirappalli, Tamil Nadu 620021.",
+                        hasButton: false
+                    };
+                }
+
+                // Contact related
+                if (msg.includes("contact") || msg.includes("phone") || 
+                    msg.includes("call") || msg.includes("number")) {
+                    return {
+                        text: "You can contact us at +91 63852 17970 or email us at info@qualitytattoostudio.in.",
+                        hasButton: false
+                    };
+                }
+
+                // Appointment related - Now redirects to appointment page
+                if (msg.includes("appointment") || msg.includes("book") || 
+                    msg.includes("schedule") || msg.includes("reserve") ||
+                    msg.includes("booking")) {
+                    return {
+                        text: "I'd be happy to help you book an appointment! Please click the button below to visit our appointment booking page where you can select your preferred date and time.",
+                        hasButton: true,
+                        buttonText: "Book Appointment Now"
+                    };
+                }
+
+                // Safety/Hygiene related
+                if (msg.includes("safe") || msg.includes("hygiene") || 
+                    msg.includes("clean") || msg.includes("sterile")) {
+                    return {
+                        text: "We follow strict hygiene practices with 100% sterilized equipment and single-use needles. Your safety is our top priority.",
+                        hasButton: false
+                    };
+                }
+
+                // Aftercare related
+                if (msg.includes("aftercare") || msg.includes("healing") || 
+                    msg.includes("care") || msg.includes("maintenance")) {
+                    return {
+                        text: "Keep the tattoo clean, avoid direct sunlight, and apply the recommended healing cream for 7-14 days. We provide detailed aftercare instructions.",
+                        hasButton: false
+                    };
+                }
+
+                // Pain related
+                if (msg.includes("pain") || msg.includes("hurt") || 
+                    msg.includes("painful")) {
+                    return {
+                        text: "Pain varies by body part and individual tolerance, but we ensure a comfortable experience with professional techniques and proper aftercare guidance.",
+                        hasButton: false
+                    };
+                }
+
+                // Design related
+                if (msg.includes("design") || msg.includes("custom") || 
+                    msg.includes("idea") || msg.includes("create")) {
+                    return {
+                        text: "Yes! We can create custom designs based on your idea or reference image. Our artists will work with you to bring your vision to life.",
+                        hasButton: false
+                    };
+                }
+
+                // Time related
+                if (msg.includes("how long") || msg.includes("time") || 
+                    msg.includes("session") || msg.includes("duration")) {
+                    return {
+                        text: "Small tattoos take 20-40 minutes. Larger ones depend on complexity. We'll provide a time estimate during your consultation.",
+                        hasButton: false
+                    };
+                }
+
+                // Ink quality related
+                if (msg.includes("ink") || msg.includes("quality") || 
+                    msg.includes("material") || msg.includes("safe ink")) {
+                    return {
+                        text: "We use premium, skin-safe inks that are internationally certified for quality and safety.",
+                        hasButton: false
+                    };
+                }
+
+                // Aftercare timing related
+                if (msg.includes("wash") || msg.includes("swim") || 
+                    msg.includes("workout") || msg.includes("shower")) {
+                    return {
+                        text: "Avoid swimming and intense workouts for 7 days. You can gently wash the tattoo with mild soap after 24 hours.",
+                        hasButton: false
+                    };
+                }
+
+                // Default response
+                return {
+                    text: "Thank you for your message! Our team will respond shortly. For faster assistance, you can call us at +91 63852 17970.",
+                    hasButton: false
+                };
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | QUALITY TATTOO STUDIO | Premium Tattoo Studio</title>
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.cdnfonts.com/css/ica-rubrik-black" as="style">
+    <link rel="preload" href="https://fonts.cdnfonts.com/css/poppins" as="style">
+
+    <!-- Fonts -->
+    <link href="https://fonts.cdnfonts.com/css/ica-rubrik-black" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <!-- Critical CSS -->
+    <style>
+        :root {
+            --primary: #D4C8BE;
+            --primary-dark: #B8A99A;
+            --secondary: #2D3047;
+            --dark: #25283B;
+            --light: #F4F0EB;
+            --accent: #8A8D93;
+            --gold: #C9A96E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+        }
+
+        /* Critical above-fold styles */
+        .navbar {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            padding: 18px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar-brand {
+            font-family: 'ICA Rubrik', system-ui, sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--dark) !important;
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .desktop-nav .navbar-nav {
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .desktop-nav .nav-item {
+            margin: 0 10px;
+        }
+
+        .desktop-nav .nav-link {
+            font-weight: 500;
+            color: var(--dark);
+            padding: 0.5rem 1.2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .desktop-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--gold) 100%);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .desktop-nav .nav-link:hover::after,
+        .desktop-nav .nav-link.active::after {
+            width: 70%;
+        }
+
+        .desktop-nav .nav-link:hover,
+        .desktop-nav .nav-link.active {
+            color: var(--secondary);
+        }
+
+        /* About Hero Section */
+        .about-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(45, 48, 71, 0.8), rgba(37, 40, 59, 0.9)), url('https://images.unsplash.com/photo-1609621838384-231665edd5d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 76px;
+            position: relative;
+        }
+
+        .about-hero h1 {
+            font-family: 'ICA Rubrik';
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Animated Hamburger Menu */
+        .hamburger-menu {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hamburger-menu .line {
+            fill: none;
+            stroke: var(--dark);
+            stroke-width: 6;
+            transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hamburger-menu .line1 {
+            stroke-dasharray: 60 207;
+            stroke-width: 6;
+        }
+
+        .hamburger-menu .line2 {
+            stroke-dasharray: 60 60;
+            stroke-width: 6;
+        }
+
+        .hamburger-menu .line3 {
+            stroke-dasharray: 60 207;
+            stroke-width: 6;
+        }
+
+        .hamburger-menu.opened .line1 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 6;
+        }
+
+        .hamburger-menu.opened .line2 {
+            stroke-dasharray: 1 60;
+            stroke-dashoffset: -30;
+            stroke-width: 6;
+        }
+
+        .hamburger-menu.opened .line3 {
+            stroke-dasharray: 90 207;
+            stroke-dashoffset: -134;
+            stroke-width: 6;
+        }
+
+        /* Mobile menu fixes */
+        .mobile-menu-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+            z-index: 1001;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100%;
+            background: white;
+            z-index: 999;
+            transition: right 0.4s ease;
+            padding: 100px 30px 30px;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Back to top button - FIXED SIZE */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            /* Fixed size */
+            height: 45px;
+            /* Fixed size */
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--dark);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(212, 200, 190, 0.4);
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            /* Adjusted icon size */
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Updated Cool Button Style */
+        .btn-primary {
+            font-weight: 700;
+            padding: 15px 30px;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #3b82f6, #ec4899);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(110%);
+            animation: pulse 1.5s infinite;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+            }
+        }
+
+        /* Aurora Background */
+        .aurora-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 180, 220, 0.4), transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(180, 240, 255, 0.4), transparent 50%);
+            filter: blur(60px);
+            z-index: -1;
+            animation: auroraFloat 25s ease-in-out infinite alternate;
+            opacity: 0.6;
+        }
+
+        @keyframes auroraFloat {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* Reduce aurora complexity on mobile */
+        @media (max-width: 767px) {
+            .aurora-background {
+                animation: auroraFloatMobile 35s ease-in-out infinite alternate;
+                opacity: 0.4;
+                background:
+                    radial-gradient(circle at 20% 30%, rgba(255, 180, 220, 0.2), transparent 40%),
+                    radial-gradient(circle at 80% 70%, rgba(180, 240, 255, 0.2), transparent 40%);
+                filter: blur(40px);
+            }
+
+            @keyframes auroraFloatMobile {
+                0% {
+                    background-position: 0% 30%;
+                }
+
+                100% {
+                    background-position: 100% 70%;
+                }
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1023px) {
+            .about-hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .about-hero {
+                height: 50vh;
+                margin-top: 70px;
+            }
+
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+
+    <!-- Non-critical CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+    <!-- Deferred CSS -->
+    <noscript>
+        <link href="https://fonts.cdnfonts.com/css/ica-rubrik-black" rel="stylesheet">
+        <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    </noscript>
+</head>
+
+<body>
+    <!-- Aurora Background -->
+    <div class="aurora-background"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container navbar-container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="https://uploads.onecompiler.io/4434eqhhv/443c3htfs/1761982430665.jpg" alt="Logo"
+                    style="width:45px; height:45px; border-radius:50%; object-fit:cover; margin-right:8px;">
+                QUALITY TATTOO STUDIO
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav d-none d-lg-flex align-items-center">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="appointment.html">Appointment</a>
+                    </li>
+                </ul>
+                <a href="appointment.html" class="btn btn-primary ms-3">Book Appointment</a>
+            </div>
+
+            <!-- Mobile Menu Button - Updated with animated hamburger -->
+            <button class="hamburger-menu d-lg-none" id="mobileMenuButton" aria-label="Toggle mobile menu"
+                aria-expanded="false">
+                <svg width="40" height="40" viewBox="0 0 100 100">
+                    <path class="line line1"
+                        d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                    <path class="line line2" d="M 20,50 H 80" />
+                    <path class="line line3"
+                        d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close mobile menu">
+            <i class="bi bi-x" aria-hidden="true"></i>
+        </button>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="about.html">About</a>
+        <a class="nav-link" href="gallery.html">Gallery</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="appointment.html">Appointment</a>
+        <a href="appointment.html" class="btn btn-primary mt-4">Book Appointment</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1 class="animate-on-scroll">Our Story</h1>
+            <p class="animate-on-scroll">Discover the passion, artistry, and dedication behind QUALITY TATTOO STUDIO -
+                where every tattoo tells a story and every client becomes part of our family.</p>
+        </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- About Image -->
+                <div class="col-lg-6 mb-5 mb-lg-0 text-center">
+                    <div class="about-img animate-on-scroll">
+                        <img src="https://uploads.onecompiler.io/4434eqhhv/443c3htfs/1761982430665.jpg"
+                            alt="Tattoo Studio" loading="lazy" class="round-image">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title animate-on-scroll">About QUALITY TATTOO STUDIO</h2>
+                    <h3 class="mb-4 animate-on-scroll">Where Art Meets Skin</h3>
+                    <p class="mb-4 animate-on-scroll">QUALITY TATTOO STUDIO represents the pinnacle of tattoo artistry,
+                        where exceptional skill meets creative vision. Our studio was founded on the principle that
+                        tattoos should be more than just ink—they should be meaningful works of art that tell your
+                        unique story.</p>
+                    <p class="mb-4 animate-on-scroll">With over a decade of collective experience, our artists
+                        specialize in various styles from delicate fine-line work to bold traditional pieces. We
+                        prioritize hygiene, comfort, and artistic excellence in every tattoo we create.</p>
+                    <div class="row mb-4 animate-on-scroll">
+                        <div class="col-sm-6">
+                            <p><i class="bi bi-check text-primary me-2"></i> Award-Winning Artists</p>
+                            <p><i class="bi bi-check text-primary me-2"></i> Custom Design Process</p>
+                            <p><i class="bi bi-check text-primary me-2"></i> Premium Quality Materials</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p><i class="bi bi-check text-primary me-2"></i> Sterile Environment</p>
+                            <p><i class="bi bi-check text-primary me-2"></i> Personalized Consultations</p>
+                            <p><i class="bi bi-check text-primary me-2"></i> Aftercare Support</p>
+                        </div>
+                    </div>
+                    <a href="services.html" class="btn btn-primary py-3 px-5 animate-on-scroll">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Timeline -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title animate-on-scroll">Our Journey</h2>
+                <p class="lead animate-on-scroll">From humble beginnings to becoming a premier tattoo destination</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item left animate-on-scroll">
+                    <div class="timeline-content">
+                        <h3>2010</h3>
+                        <h4>Foundation</h4>
+                        <p>QUALITY TATTOO STUDIO was founded by a group of passionate artists with a shared vision: to
+                            create a studio where artistry and client experience were equally prioritized.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right animate-on-scroll">
+                    <div class="timeline-content">
+                        <h3>2013</h3>
+                        <h4>First Expansion</h4>
+                        <p>We expanded our studio space to accommodate more artists and provide private consultation
+                            rooms, enhancing the personalized experience for our clients.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left animate-on-scroll">
+                    <div class="timeline-content">
+                        <h3>2016</h3>
+                        <h4>Artistic Recognition</h4>
+                        <p>Our artists began receiving national recognition, with several winning awards at prestigious
+                            tattoo conventions across the country.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right animate-on-scroll">
+                    <div class="timeline-content">
+                        <h3>2019</h3>
+                        <h4>Modernization</h4>
+                        <p>We completely renovated our studio, incorporating state-of-the-art equipment and creating a
+                            more welcoming, gallery-like atmosphere.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left animate-on-scroll">
+                    <div class="timeline-content">
+                        <h3>2022</h3>
+                        <h4>Premium Status</h4>
+                        <p>QUALITY TATTOO STUDIO was recognized as a premium tattoo destination, known for our
+                            exceptional custom work and unparalleled client care.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right animate-on-scroll">
+                    <div class="timeline-content">
+                        <h3>Present</h3>
+                        <h4>Continuing Excellence</h4>
+                        <p>We continue to push artistic boundaries while maintaining our commitment to quality, safety,
+                            and creating meaningful tattoos for our clients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title animate-on-scroll">Our Values</h2>
+                <p class="lead animate-on-scroll">The principles that guide everything we do</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-card animate-on-scroll">
+                        <div class="value-icon">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+                        <h4>Artistic Excellence</h4>
+                        <p>We believe every tattoo should be a masterpiece. Our artists continuously refine their skills
+                            and stay updated with the latest techniques and trends.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-card animate-on-scroll">
+                        <div class="value-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h4>Safety & Hygiene</h4>
+                        <p>Your health and safety are our top priorities. We maintain the highest standards of
+                            cleanliness and use only medical-grade, single-use equipment.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-card animate-on-scroll">
+                        <div class="value-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <h4>Client Partnership</h4>
+                        <p>We view each tattoo as a collaboration. We listen carefully to your ideas and work together
+                            to create a design that perfectly represents your vision.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title animate-on-scroll">Meet Our Founders</h2>
+                <p class="lead animate-on-scroll">The visionary artists behind QUALITY TATTOO STUDIO</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-6 col-md-8">
+                    <div class="team-card animate-on-scroll">
+                        <div class="team-img">
+                            <img src="artist.jpg" alt="Venkat" loading="lazy" width="870" height="580">
+                        </div>
+                        <div class="p-4 text-center">
+                            <h5>Venkat</h5>
+                            <p class="text-primary mb-3">Founder & Creative Artist</p>
+                            <p>With 6+ years of expertise in realism and portrait tattoos, Venkat delivers
+                                precision-driven artistry that defines QUALITY TATTOO STUDIO’s excellence. His work is
+                                known for its durability, smooth healing, flawless finish, and high success rate, with
+                                no reported cases of skin bulging or premature fading. Every tattoo reflects his
+                                commitment to detail, perfection, and client satisfaction.
+
+                                Venkat also specialises in advanced cover-up transformations, turning outdated or poorly
+                                executed tattoos into visually refined, seamless designs. Through intelligent layering,
+                                strategic planning, and expert shading, each redesign blends naturally with the body,
+                                appearing intentional, cohesive, and artistically elevated while ensuring long-term
+                                quality and renewed client confidence.</p>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Button -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- ✅ UPDATED WHATSAPP LINK: Uses 916385217970 -->
+    <a href="https://api.whatsapp.com/send?phone=916385217970&text=Hello%2C%20I%27d%20like%20more%20information%20about%20booking%20a%20tattoo%20appointment."
+        class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
+
+    <style>
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 35px;
+            left: 20px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .float:hover {
+            transform: scale(1.1);
+        }
+
+        .my-float {
+            margin-top: 16px;
+        }
+    </style>
+    <!-- CTA Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h2 class="mb-3 animate-on-scroll">Ready to Begin Your Tattoo Journey?</h2>
+                    <p class="mb-4 animate-on-scroll">Book a consultation with our artists to discuss your ideas and
+                        bring your vision to life.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="appointment.html" class="btn btn-primary py-3 px-5 animate-on-scroll">Book Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3">
+                    <h3 class="text-white mb-4 animate-on-scroll">QUALITY TATTOO STUDIO</h3>
+                    <p class="mb-4 animate-on-scroll">Creating custom tattoos that tell your unique story. Our talented
+                        artists specialize in various styles to bring your vision to life with precision and artistry.
+                    </p>
+                    <p class="mb-2"><i class="bi bi-geo-alt me-2"></i>Abirami complex, bus stop, opposite Indian Bank
+                        Colony, Ganesh Nagar, K K Nagar, Tiruchirappalli, Tamil Nadu 620021</p>
+                    <p class="mb-2"><i class="bi bi-telephone me-2"></i>+91 63852 17970</p>
+                    <p class="mb-4"><i class="bi bi-envelope me-2"></i>info@qualitytattoostudio.in</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="text-white mb-4 animate-on-scroll">Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About</a>
+                        <a href="gallery.html">Gallery</a>
+                        <a href="services.html">Services</a>
+                        <a href="appointment.html">Appointment</a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="text-white mb-4 animate-on-scroll">Our Services</h5>
+                    <div class="footer-links">
+                        <a href="services.html">Custom Tattoos</a>
+                        <a href="services.html">Cover-Up Tattoos</a>
+                        <a href="services.html">Tattoo Restoration</a>
+                        <a href="services.html">Color Tattoos</a>
+                        <a href="services.html">Black & Grey Tattoos</a>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="text-white mb-4 animate-on-scroll">Studio Hours</h5>
+                    <div class="footer-links">
+                        <p class="text-white-50 mb-2">Monday - Friday: 9AM - 8PM</p>
+                        <p class="text-white-50 mb-2">Saturday: 10AM - 6PM</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="text-white-50 mt-5">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-white-50 mb-0">&copy; 2025 QUALITY TATTOO STUDIO. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-links d-inline">
+                        <a class="text-white-50" href="https://pixelgridhub.in/" target="_blank" rel="noopener">
+                            Designed by PixelGridHub
+                        </a>
+                    </div>
+                </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Deferred JavaScript -->
+    <script>
+        // Load non-critical resources
+        function loadDeferredResources() {
+            // Font Awesome if needed
+            const faLink = document.createElement('link');
+            faLink.rel = 'stylesheet';
+            faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css';
+            document.head.appendChild(faLink);
+        }
+
+        // Execute when page is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadDeferredResources);
+        } else {
+            loadDeferredResources();
+        }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- Main JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const body = document.body;
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            body.classList.add('mobile-menu-open');
+            mobileMenuButton.classList.add('opened');
+            mobileMenuButton.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            body.classList.remove('mobile-menu-open');
+            mobileMenuButton.classList.remove('opened');
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+        }
+
+        mobileMenuButton.addEventListener('click', function () {
+            if (mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Back to top button - FIXED
+        const backToTop = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('.navbar').offsetHeight;
+
+                    window.scrollTo({
+                        top: targetElement.offsetTop - headerHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.pageYOffset > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.9)';
+            }
+        });
+
+        // Scroll animations with Intersection Observer
+        const animateOnScroll = document.querySelectorAll('.animate-on-scroll');
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            animateOnScroll.forEach(element => {
+                observer.observe(element);
+            });
+        } else {
+            animateOnScroll.forEach(element => {
+                element.classList.add('animated');
+            });
+        }
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link, .desktop-nav .nav-link');
+
+            let current = '';
+            const headerHeight = document.querySelector('.navbar').offsetHeight;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= (sectionTop - headerHeight - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Performance optimization for mobile
+        function optimizeForMobile() {
+            if (window.innerWidth <= 767) {
+                // Reduce animation complexity for mobile
+                const auroraBackground = document.querySelector('.aurora-background');
+                if (auroraBackground) {
+                    auroraBackground.style.animationDuration = '35s';
+                }
+            }
+        }
+
+        // Run optimization on load and resize
+        window.addEventListener('load', optimizeForMobile);
+        window.addEventListener('resize', optimizeForMobile);
+    </script>
+
+    <!-- Non-critical CSS -->
+    <style>
+        /* Rest of the CSS that's not critical for above-fold content */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'ICA Rubrik', system-ui, sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .text-primary {
+            color: var(--primary) !important;
+        }
+
+        .bg-primary {
+            background-color: var(--primary) !important;
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            background: transparent;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 200, 190, 0.3);
+        }
+
+        .navbar-brand::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            bottom: 5px;
+            right: -12px;
+        }
+
+        /* Section Styles */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--gold) 100%);
+            border-radius: 2px;
+        }
+
+        .bg-light {
+            background: linear-gradient(135deg, #f9f7f4 0%, #f0ede8 100%);
+        }
+
+        /* About Section */
+        .round-image {
+            width: 100%;
+            max-width: 580px;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border: 4px solid #f8e7c6;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .round-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .about-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .about-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 200, 190, 0.1) 0%, rgba(201, 169, 110, 0.05) 100%);
+            z-index: 1;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid var(--primary);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--primary);
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid var(--primary);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--primary) transparent transparent;
+        }
+
+        .right::after {
+            left: -12px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Values Section */
+        .value-card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            background: white;
+            height: 100%;
+            border: 1px solid rgba(212, 200, 190, 0.3);
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            box-shadow: 0 8px 20px rgba(212, 200, 190, 0.4);
+        }
+
+        .value-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Team Section */
+        .team-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            background: white;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(212, 200, 190, 0.3);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Perfect responsive image - no cropping */
+        .team-img {
+            width: 100%;
+            background: #f4f4f4;
+            /* soft background so empty areas look clean */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            /* prevents edge-cutting */
+        }
+
+        .team-img img {
+            width: 100%;
+            height: auto;
+            /* ★ keeps full image visible */
+            object-fit: contain;
+            /* ★ prevents cropping */
+            transition: transform 0.8s ease;
+            border-radius: 8px;
+        }
+
+        /* Hover zoom (smooth without cropping) */
+        .team-card:hover .team-img img {
+            transform: scale(1.05);
+        }
+
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--dark) 100%);
+            color: white;
+            padding: 80px 0 20px;
+        }
+
+        .footer h5 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-open {
+            overflow: hidden;
+        }
+
+        .mobile-menu .nav-link {
+            display: block;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(45, 48, 71, 0.1);
+            font-size: 18px;
+            color: var(--dark);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu .nav-link:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1023px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid var(--primary);
+                border-width: 10px 10px 10px 0;
+                border-color: transparent var(--primary) transparent transparent;
+            }
+
+            .left::after,
+            .right::after {
+                left: 18px;
+            }
+
+            .right {
+                left: 0%;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .section-padding {
+                padding: 80px 0;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .about-img {
+                margin-bottom: 30px;
+            }
+
+            .footer {
+                padding: 60px 0 20px;
+            }
+
+            .footer h5 {
+                font-size: 1.1rem;
+            }
+
+            .navbar-brand {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .section-padding {
+                padding: 50px 0;
+            }
+
+            .mobile-menu {
+                width: 280px;
+            }
+
+            .round-image {
+                max-width: 280px;
+            }
+        }
+
+        /* iPhone 17 Pro Max specific optimizations */
+        @media only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
+            .about-hero {
+                height: 50vh;
+                height: 50dvh;
+            }
+
+            .navbar {
+                padding: 15px 0;
+            }
+
+            .section-padding {
+                padding: 70px 0;
+            }
+        }
+    </style>
+</body>
+
+</html>
