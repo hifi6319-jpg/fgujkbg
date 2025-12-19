@@ -3,6 +3,7 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://www.qualitytattoostudio.in/sitemap.xml
+Sitemap: https://www.qualitytattoostudio.in/site.xml
 
 # Crawl delay (optional, helps prevent server overload)
 Crawl-delay: 1
