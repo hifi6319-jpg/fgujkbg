@@ -1871,9 +1871,7 @@ body {
   padding: 0 30px;
   max-height: 0;
   overflow: hidden;
-  opacity: 0;
-  /* Star invisible */
-  transition: all 0.4s ease;
+  transition: max-height 0.4s ease, padding 0.4s ease;
 }
 
 .faq-answer p {
@@ -1886,8 +1884,6 @@ body {
   padding: 0 30px 25px;
   max-height: 1000px;
   /* Safe upper limit */
-  opacity: 1;
-  /* Fade in */
 }
 
 .faq-item.active .faq-question i {
