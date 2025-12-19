@@ -1377,8 +1377,9 @@ body {
     left: -10px;
     right: auto;
   }
-} 
- 
+}
+
+   
 /* ============================================
    COMPREHENSIVE MOBILE RESPONSIVENESS
    ============================================ */
@@ -1388,7 +1389,7 @@ body {
   .navbar {
     padding: 12px 0;
   }
-  
+
   .navbar-container {
     padding: 0 15px;
   }
@@ -1402,7 +1403,7 @@ body {
     text-overflow: ellipsis;
     max-width: calc(100vw - 100px);
   }
-  
+
   .navbar-brand img {
     width: 35px !important;
     height: 35px !important;
@@ -1415,7 +1416,7 @@ body {
     font-size: 14px !important;
     max-width: calc(100vw - 90px);
   }
-  
+
   .navbar-brand img {
     width: 32px !important;
     height: 32px !important;
@@ -1424,6 +1425,7 @@ body {
 
 /* Fix Button Collisions - Stack Vertically on Right */
 @media (max-width: 768px) {
+
   /* WhatsApp Button */
   .float {
     bottom: 180px !important;
@@ -1433,7 +1435,7 @@ body {
     height: 50px;
     font-size: 24px;
   }
-  
+
   /* Chat Button */
   .chat-button {
     bottom: 120px !important;
@@ -1442,7 +1444,7 @@ body {
     height: 50px !important;
     font-size: 20px !important;
   }
-  
+
   /* Scroll to Top */
   .back-to-top {
     bottom: 60px !important;
@@ -1460,14 +1462,14 @@ body {
     width: 48px;
     height: 48px;
   }
-  
+
   .chat-button {
     bottom: 100px !important;
     right: 10px !important;
     width: 48px !important;
     height: 48px !important;
   }
-  
+
   .back-to-top {
     bottom: 40px !important;
     right: 10px !important;
@@ -1481,25 +1483,25 @@ body {
   .hero-section {
     height: 100vh;
   }
-  
+
   .hero-content h1 {
     font-size: 5em !important;
   }
-  
+
   .hero-content .tagline h2 {
     font-size: 2em !important;
   }
-  
+
   .hero-content .tagline p {
     font-size: 1rem;
   }
-  
+
   .hero-buttons {
     flex-direction: column !important;
     width: 85% !important;
     gap: 12px !important;
   }
-  
+
   .hero-buttons .btn {
     width: 100% !important;
     font-size: 15px !important;
@@ -1512,15 +1514,15 @@ body {
   .hero-content h1 {
     font-size: 3.5em !important;
   }
-  
+
   .hero-content .tagline h2 {
     font-size: 1.5em !important;
   }
-  
+
   .hero-buttons {
     width: 90% !important;
   }
-  
+
   .hero-buttons .btn {
     font-size: 14px !important;
     padding: 12px 20px !important;
@@ -1531,7 +1533,7 @@ body {
   .hero-content h1 {
     font-size: 3em !important;
   }
-  
+
   .hero-content .tagline h2 {
     font-size: 1.3em !important;
   }
@@ -1539,88 +1541,269 @@ body {
 
 /* Typography Scaling */
 @media (max-width: 768px) {
-  h1 { font-size: 2rem !important; }
-  h2 { font-size: 1.75rem !important; }
-  h3 { font-size: 1.5rem !important; }
-  h4 { font-size: 1.25rem !important; }
-  h5 { font-size: 1.1rem !important; }
-  p { font-size: 0.95rem !important; line-height: 1.6; }
-  .section-padding { padding: 40px 0 !important; }
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  h2 {
+    font-size: 1.75rem !important;
+  }
+
+  h3 {
+    font-size: 1.5rem !important;
+  }
+
+  h4 {
+    font-size: 1.25rem !important;
+  }
+
+  h5 {
+    font-size: 1.1rem !important;
+  }
+
+  p {
+    font-size: 0.95rem !important;
+    line-height: 1.6;
+  }
+
+  .section-padding {
+    padding: 40px 0 !important;
+  }
 }
 
 @media (max-width: 480px) {
-  h1 { font-size: 1.75rem !important; }
-  h2 { font-size: 1.5rem !important; }
-  h3 { font-size: 1.3rem !important; }
-  p { font-size: 0.9rem !important; }
-  .section-padding { padding: 30px 0 !important; }
+  h1 {
+    font-size: 1.75rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  h3 {
+    font-size: 1.3rem !important;
+  }
+
+  p {
+    font-size: 0.9rem !important;
+  }
+
+  .section-padding {
+    padding: 30px 0 !important;
+  }
 }
 
 /* Service Cards, Gallery, Chat Widget Mobile */
 @media (max-width: 768px) {
-  .service-img { height: 220px !important; }
-  .service-card { margin-bottom: 20px !important; }
-  .service-card h4 { font-size: 1.2rem !important; }
-  .service-card p { font-size: 0.9rem !important; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
-  .filter-btn { font-size: 0.85rem !important; padding: 6px 16px !important; }
+  .service-img {
+    height: 220px !important;
+  }
+
+  .service-card {
+    margin-bottom: 20px !important;
+  }
+
+  .service-card h4 {
+    font-size: 1.2rem !important;
+  }
+
+  .service-card p {
+    font-size: 0.9rem !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .filter-btn {
+    font-size: 0.85rem !important;
+    padding: 6px 16px !important;
+  }
 }
 
 @media (max-width: 480px) {
-  .service-img { height: 200px !important; }
-  .gallery-grid { grid-template-columns: 1fr !important; gap: 15px !important; }
-  .filter-btn { font-size: 0.8rem !important; padding: 5px 12px !important; }
-  .chat-window { width: calc(100vw - 20px) !important; height: 75vh !important; right: 10px !important; bottom: 110px !important; max-height: 500px; }
-  .chat-header { padding: 12px !important; }
-  .chat-title { font-size: 0.9rem !important; }
-  .chat-messages { padding: 12px !important; }
-  .message-content { font-size: 0.85rem !important; }
-  .mobile-menu { width: 280px; padding: 70px 25px 30px; }
-  .mobile-menu .nav-link { font-size: 1rem !important; padding: 12px 0 !important; }
-  .container { padding-left: 12px !important; padding-right: 12px !important; }
+  .service-img {
+    height: 200px !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+
+  .filter-btn {
+    font-size: 0.8rem !important;
+    padding: 5px 12px !important;
+  }
+
+  .chat-window {
+    width: calc(100vw - 20px) !important;
+    height: 75vh !important;
+    right: 10px !important;
+    bottom: 110px !important;
+    max-height: 500px;
+  }
+
+  .chat-header {
+    padding: 12px !important;
+  }
+
+  .chat-title {
+    font-size: 0.9rem !important;
+  }
+
+  .chat-messages {
+    padding: 12px !important;
+  }
+
+  .message-content {
+    font-size: 0.85rem !important;
+  }
+
+  .mobile-menu {
+    width: 280px;
+    padding: 70px 25px 30px;
+  }
+
+  .mobile-menu .nav-link {
+    font-size: 1rem !important;
+    padding: 12px 0 !important;
+  }
+
+  .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
 }
 
 @media (max-width: 375px) {
-  .chat-window { width: calc(100vw - 15px) !important; height: 70vh !important; }
+  .chat-window {
+    width: calc(100vw - 15px) !important;
+    height: 70vh !important;
+  }
 }
 
 /* Footer, Contact, Forms Mobile */
 @media (max-width: 768px) {
-  .footer { padding: 40px 0 20px !important; text-align: center; }
-  .footer h5 { font-size: 1.1rem !important; margin-bottom: 15px !important; }
-  .footer p, .footer a { font-size: 0.9rem !important; }
-  .social-icons { justify-content: center; }
-  .about-img { margin-bottom: 30px; }
-  .round-image { max-width: 100% !important; }
-  .contact-info { margin-bottom: 20px; padding: 15px !important; }
-  .contact-icon { width: 35px; height: 35px; margin-right: 12px !important; }
-  .contact-icon i { font-size: 1rem !important; }
-  .contact-info h5 { font-size: 1rem !important; }
-  .contact-info p { font-size: 0.85rem !important; }
-  .form-control { font-size: 0.9rem !important; padding: 10px 12px !important; }
-  .btn { font-size: 0.9rem !important; padding: 10px 20px !important; }
-  .testimonial-card { padding: 20px !important; margin-bottom: 20px; }
-  .testimonial-card p { font-size: 0.9rem !important; }
-  .container { padding-left: 15px !important; padding-right: 15px !important; }
-  body, html { overflow-x: hidden !important; max-width: 100vw; }
-  * { max-width: 100%; }
+  .footer {
+    padding: 40px 0 20px !important;
+    text-align: center;
+  }
+
+  .footer h5 {
+    font-size: 1.1rem !important;
+    margin-bottom: 15px !important;
+  }
+
+  .footer p,
+  .footer a {
+    font-size: 0.9rem !important;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .about-img {
+    margin-bottom: 30px;
+  }
+
+  .round-image {
+    max-width: 100% !important;
+  }
+
+  .contact-info {
+    margin-bottom: 20px;
+    padding: 15px !important;
+  }
+
+  .contact-icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 12px !important;
+  }
+
+  .contact-icon i {
+    font-size: 1rem !important;
+  }
+
+  .contact-info h5 {
+    font-size: 1rem !important;
+  }
+
+  .contact-info p {
+    font-size: 0.85rem !important;
+  }
+
+  .form-control {
+    font-size: 0.9rem !important;
+    padding: 10px 12px !important;
+  }
+
+  .btn {
+    font-size: 0.9rem !important;
+    padding: 10px 20px !important;
+  }
+
+  .testimonial-card {
+    padding: 20px !important;
+    margin-bottom: 20px;
+  }
+
+  .testimonial-card p {
+    font-size: 0.9rem !important;
+  }
+
+  .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  body,
+  html {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+  }
+
+  * {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
-  .footer { padding: 30px 0 15px !important; }
-  .footer h5 { font-size: 1rem !important; }
-  .form-control { font-size: 0.85rem !important; }
+  .footer {
+    padding: 30px 0 15px !important;
+  }
+
+  .footer h5 {
+    font-size: 1rem !important;
+  }
+
+  .form-control {
+    font-size: 0.85rem !important;
+  }
 }
 
 /* Tablet Landscape & Large Desktop */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .hero-content h1 { font-size: 10em !important; }
-  .navbar-brand { font-size: 24px; }
+  .hero-content h1 {
+    font-size: 10em !important;
+  }
+
+  .navbar-brand {
+    font-size: 24px;
+  }
 }
 
 @media (min-width: 1920px) {
-  .container { max-width: 1400px; }
-  .hero-content h1 { font-size: 18em !important; }
+  .container {
+    max-width: 1400px;
+  }
+
+  .hero-content h1 {
+    font-size: 18em !important;
+  }
 }
 
 /* ============================================
@@ -1670,6 +1853,8 @@ body {
   justify-content: space-between;
   align-items: center;
   font-weight: 600;
+  color: var(--dark);
+  /* Ensure explicit color */
   transition: all 0.3s ease;
 }
 
@@ -1679,18 +1864,30 @@ body {
 
 .faq-question i {
   transition: transform 0.3s ease;
+  color: var(--primary);
 }
 
 .faq-answer {
   padding: 0 30px;
   max-height: 0;
   overflow: hidden;
-  transition: all 0.3s ease;
+  opacity: 0;
+  /* Star invisible */
+  transition: all 0.4s ease;
+}
+
+.faq-answer p {
+  color: #555;
+  /* Ensure readable text color */
+  margin-bottom: 0;
 }
 
 .faq-item.active .faq-answer {
   padding: 0 30px 25px;
-  max-height: 500px;
+  max-height: 1000px;
+  /* Safe upper limit */
+  opacity: 1;
+  /* Fade in */
 }
 
 .faq-item.active .faq-question i {
