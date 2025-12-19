@@ -181,7 +181,9 @@ const Services = () => {
                                         <i className="bi bi-chevron-down"></i>
                                     </div>
                                     <div className="faq-answer">
-                                        <p>{faq.answer}</p>
+                                        <div>
+                                            <p>{faq.answer}</p>
+                                        </div>
                                     </div>
                                 </div>
                             ))}

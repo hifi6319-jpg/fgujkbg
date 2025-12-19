@@ -1854,8 +1854,8 @@ body {
   align-items: center;
   font-weight: 600;
   color: var(--dark);
-  /* Ensure explicit color */
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
+  background: white;
 }
 
 .faq-question:hover {
@@ -1867,23 +1867,30 @@ body {
   color: var(--primary);
 }
 
+/* Updated Accordion Logic: CSS Grid */
 .faq-answer {
-  padding: 0 30px;
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease-out;
+  background: white;
+}
+
+.faq-answer>div {
   overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
 }
 
 .faq-answer p {
-  color: #555;
-  /* Ensure readable text color */
+  color: #333;
+  /* Darker text for visibility */
   margin-bottom: 0;
+  padding: 0 30px 25px;
+  /* Padding inside the inner div */
+  opacity: 1 !important;
+  /* Force visible */
 }
 
 .faq-item.active .faq-answer {
-  padding: 0 30px 25px;
-  max-height: 1000px;
-  /* Safe upper limit */
+  grid-template-rows: 1fr;
 }
 
 .faq-item.active .faq-question i {
